@@ -21,13 +21,6 @@ variable "ec2_hostrecord" {
   description = "The DNS name the server should answer on"
 }
 
-variable "global_phz_id" {
-  description = "The domain ID of this VPC's domain"
-}
-
-variable "global_phz_domain" {
-  description = "The domain for this VPC"
-}
 
 variable "ec2_rootvol_size" {
   default     = "10"
