@@ -23,7 +23,7 @@ resource "aws_security_group_rule" "SSH_from" {
   security_group_id = "${aws_security_group.webstack-ec2-sg.id}"
   cidr_blocks       = ["${split(",", var.cidr_blocks)}"]
 }
-
+/*
 resource "aws_security_group_rule" "web_port" {
   type              = "ingress"
   from_port         = 8080
@@ -32,7 +32,7 @@ resource "aws_security_group_rule" "web_port" {
   security_group_id = "${aws_security_group.webstack-ec2-sg.id}"
   cidr_blocks       = ["${split(",", var.cidr_blocks)}"]
 }
-
+*/
 
 
 resource "aws_security_group_rule" "lb_listener" {
