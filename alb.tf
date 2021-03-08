@@ -67,17 +67,15 @@ resource "aws_alb_target_group" "internal_8080_target_group" {
   }
 
   tags {
-    Name             = "${var.global_product}-${var.global_environment}-internal-target-group"
-    Product          = "${var.tag_product}"
-    Environment      = "${var.global_environment}"
-    Contact          = "${var.global_contact}"
-    CostCode         = "${var.global_costcode}"
-    Orchestration    = "${var.orchestration}"
-    "Service"       = "${var.deployed_service}"
-    }
+    Name          = "${var.global_product}-${var.global_environment}-internal-target-group"
+    Product       = "${var.tag_product}"
+    Environment   = "${var.global_environment}"
+    Contact       = "${var.global_contact}"
+    CostCode      = "${var.global_costcode}"
+    Orchestration = "${var.orchestration}"
+    "Service"     = "${var.deployed_service}"
+  }
 }
-
-
 
 # ---------------------------------
 # TARGET GROUP ATTACHMENTS
@@ -87,4 +85,3 @@ resource "aws_autoscaling_attachment" "internal8080" {
   alb_target_group_arn   = "${aws_alb_target_group.internal_8080_target_group.arn}"
   autoscaling_group_name = "${aws_autoscaling_group.asg.id}"
 }
-

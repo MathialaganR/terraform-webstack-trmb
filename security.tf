@@ -11,7 +11,7 @@ resource "aws_security_group" "webstack-ec2-sg" {
     "Product"     = "${var.tag_product}"
     "environment" = "${var.global_environment}"
     "contact"     = "${var.global_contact}"
-    "Service" = "${var.deployed_service}"
+    "Service"     = "${var.deployed_service}"
   }
 }
 
@@ -23,6 +23,7 @@ resource "aws_security_group_rule" "SSH_from" {
   security_group_id = "${aws_security_group.webstack-ec2-sg.id}"
   cidr_blocks       = ["${split(",", var.cidr_blocks)}"]
 }
+
 /*
 resource "aws_security_group_rule" "web_port" {
   type              = "ingress"
@@ -34,7 +35,6 @@ resource "aws_security_group_rule" "web_port" {
 }
 */
 
-
 resource "aws_security_group_rule" "lb_listener" {
   type                     = "ingress"
   from_port                = 8080
@@ -43,7 +43,6 @@ resource "aws_security_group_rule" "lb_listener" {
   security_group_id        = "${aws_security_group.webstack-ec2-sg.id}"
   source_security_group_id = "${aws_security_group.ec2_alb.id}"
 }
-
 
 # Authorize all outbound traffic.
 resource "aws_security_group_rule" "all_outbound" {
@@ -69,7 +68,7 @@ resource "aws_security_group" "ec2_alb" {
     "CostCode"      = "${var.global_costcode}"
     "Role"          = "${var.ec2_role}"
     "Orchestration" = "${var.orchestration}"
-    "Service" =  "${var.deployed_service}"
+    "Service"       = "${var.deployed_service}"
   }
 }
 

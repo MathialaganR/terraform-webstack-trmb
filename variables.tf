@@ -21,14 +21,13 @@ variable "ec2_hostrecord" {
   description = "The DNS name the server should answer on"
 }
 
-
 variable "ec2_rootvol_size" {
   default     = "10"
   description = "The size of the Root Volume in GB"
 }
 
 variable "cidr_blocks" {
-  default     = ""
+  default = ""
 }
 
 variable "alb_cidr_blocks" {
@@ -78,9 +77,7 @@ variable "global_contact" {
   default     = "rmathialagan@gmail.com"
 }
 
-variable "global_businessunit" {
-
-}
+variable "global_businessunit" {}
 
 variable "listener_lb_port" {
   description = "port ALB will listen on"
@@ -119,12 +116,12 @@ variable "enable_alb" {
 
 variable "tag_product" {
   description = "Tag for product the resource is used by)"
-
 }
 
 variable "deployed_service" {
   description = "deployment service"
 }
+
 variable "aws_region" {
   default = "eu-west-1"
 }
