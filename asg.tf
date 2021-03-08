@@ -3,7 +3,7 @@
 #---------------------------------------------------------------
 resource "aws_autoscaling_group" "asg" {
   name                = "${var.global_product}.${var.global_environment}.${var.ec2_role}.asg"
-  vpc_zone_identifier = ["${split(",", var.alb_subnets)}"]
+  vpc_zone_identifier = ["${split(",", var.global_subnet_id)}"]
 
   #launch_configuration      = "${aws_launch_configuration.lc.id}"
   max_size                  = "1"

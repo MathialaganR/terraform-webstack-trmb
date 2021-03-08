@@ -45,7 +45,7 @@ variable "global_key_name" {
 }
 
 variable "global_subnet_id" {
-  description = "The ID of the subnet to deploy the OSSEC Server into"
+  description = "The ID of the subnet to deploy r into"
 }
 
 variable "global_vpc_id" {
