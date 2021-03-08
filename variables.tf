@@ -131,8 +131,5 @@ variable "hostname_offset" {
   default     = "0"
 }
 
-variable "ec2_count" {
-  default = "1"
-}
 
 variable "global_phz_id" {}
