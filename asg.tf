@@ -109,11 +109,12 @@ resource "aws_launch_template" "lt" {
 #-----------------------------------------------------------------
 data "template_file" "userdata" {
 
-
+  count    = "${var.ec2_count}"
   template = "${file("${var.ec2_user_data}")}"
 
   vars {
-    appliedhostname   = "${var.ec2_hostrecord}}"
+    #appliedhostname   = "${var.ec2_hostrecord}}"
+    appliedhostname   = "${var.ec2_hostrecord}${format("%03d", count.index + 1 + var.hostname_offset)}"
     product           = "${var.tag_product}"
     environment       = "${var.global_environment}"
     role              = "${var.ec2_role}"

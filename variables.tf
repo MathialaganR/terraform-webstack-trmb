@@ -129,5 +129,13 @@ variable "aws_region" {
   default = "eu-west-1"
 }
 
+variable "hostname_offset" {
+  description = "The number you want to offset your hostname, setting 0 starts at 1, 1 starts at 2 etc."
+  default     = "0"
+}
 
+variable "ec2_count" {
+  default = "1"
+}
 
+variable "global_phz_id" {}
