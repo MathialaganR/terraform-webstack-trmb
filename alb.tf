@@ -3,7 +3,7 @@
 #---------------------------------------------------------------
 
 resource "aws_lb" "ec2_alb" {
-  internal                   = "true"
+  internal                   = "${var.elb_internal}"
   load_balancer_type         = "application"
   name                       = "${var.global_product}-${var.global_environment}-${var.ec2_role}-alb"
   subnets                    = "${split(",", var.alb_subnets)}"

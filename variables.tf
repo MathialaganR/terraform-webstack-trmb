@@ -133,3 +133,4 @@ variable "hostname_offset" {
 
 
 variable "global_phz_id" {}
+variable "elb_internal" {}
